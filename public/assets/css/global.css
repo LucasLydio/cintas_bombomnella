@@ -1,0 +1,40 @@
+:root {
+  --font-sans: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --font: var(--font-sans);
+
+  --bg-white: #ffffff; /* bg for card */
+  --bg-gray: #e2dadbff; /* bg for screen */
+  --bg-red: #a41623ff; /* bg for header, footer and sidebar */
+
+  --text-dark: #090909ff;  /* When bg where white or gray */
+  --text-dark2: #394f49ff; /* When bg where white or gray */
+  --text-white: #f7f7f7; /* When bg where red or black  */
+
+  --bg: var(--bg-gray);
+
+  --text: var(--text-dark);
+  --text2: var(--text-dark2);
+  --text3: rgba(9, 9, 9, 0.6);
+
+  --muted: rgba(9, 9, 9, 0.65);
+
+  --brand: var(--bg-red);
+  --on-brand: var(--text-white);
+  --border: rgba(17, 24, 39, 0.15);
+
+  --shadow-sm: 0 2px 4px rgba(12, 6, 1, 0.05);
+  --shadow-md: 1px 0px 5px 0px rgba(0, 0, 0, 0.192);
+  --shadow-lg: 0px 0px 10px 0px rgba(0, 0, 0, 0.516);
+
+  --padding-sm: .2rem; 
+  --padding-md: .6rem; 
+  --padding-lg: 1.2rem; 
+  --padding-xlg: 2.7rem; 
+
+  --radius-sm: .2rem;
+  --radius-md: .6rem;
+  --radius-lg: .8rem;
+  --radius-pill: 999px;
+
+}
+

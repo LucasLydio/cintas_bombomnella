@@ -1,0 +1,18 @@
+@import url("../sections/hero.css");
+
+.main {
+    min-height: 85dvh;
+}
+
+.coming-soon .container {
+  padding-top: var(--padding-lg);
+  padding-bottom: 2rem;
+}
+
+.coming-soon h1 {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 2.25rem 1.5rem;
+}

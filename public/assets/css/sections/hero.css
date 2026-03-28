@@ -1,0 +1,154 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+  background: var(--brand);
+  color: var(--on-brand);
+  min-height: clamp(320px, 42vw, 420px);
+  display: flex;
+  align-items: flex-end;
+  background-image: url("../../images/banners/bgCinta2.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  width: 400%;
+  height: 100%;
+  animation: heroSlide 16s infinite;
+}
+
+.hero__img {
+  display: none;
+  flex: 0 0 25%;
+  width: 25%;
+  height: 100%;
+  background-position: right;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: saturate(1.05) contrast(1.05);
+}
+
+/* Fallback backgrounds (replace with real images later) */
+.hero__img--1 {
+  /* background-image: radial-gradient(1200px 600px at 20% 20%, rgba(255, 255, 255, 0.22), transparent 55%),
+    linear-gradient(135deg, rgba(0, 0, 0, 0.2), transparent 60%),
+    linear-gradient(135deg, #a41623, #5a0c14); */
+    background-image: url("../../images/banners/cinta01.png");
+}
+.hero__img--2 {
+  /* background-image: radial-gradient(1200px 600px at 80% 25%, rgba(255, 255, 255, 0.22), transparent 55%),
+    linear-gradient(135deg, rgba(0, 0, 0, 0.2), transparent 60%),
+    linear-gradient(135deg, #7c1420, #2b0b10); */
+    background-image: url("../../images/banners/cinta02.png");
+}
+.hero__img--3 {
+  /* background-image: radial-gradient(1200px 600px at 35% 75%, rgba(255, 255, 255, 0.22), transparent 55%),
+    linear-gradient(135deg, rgba(0, 0, 0, 0.2), transparent 60%),
+    linear-gradient(135deg, #b01c2b, #4b0a11); */
+    background-image: url("../../images/banners/cinta03.png");
+}
+.hero__img--4 {
+  /* background-image: radial-gradient(1200px 600px at 20% 20%, rgba(255, 255, 255, 0.22), transparent 55%),
+    linear-gradient(135deg, rgba(0, 0, 0, 0.2), transparent 60%),
+    linear-gradient(135deg, #a41623, #5a0c14); */
+    background-image: url("../../images/banners/cinta03.png");
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent 65%);
+  pointer-events: none;
+}
+
+.hero__content {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 40%;
+  min-height: clamp(320px, 42vw, 520px);
+  z-index: 1;
+  padding-inline-start: var(--padding-xlg);
+  padding-bottom: var(--padding-lg);
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.748), transparent 65%);
+
+  @media (max-width: 700px) {
+    min-height: clamp(420px, 42vw, 520px);
+    max-width: 100%;
+    padding-inline-start: inherit;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.89), transparent 85%);
+  }
+}
+
+.hero__logo {
+  /* min-width: 90px;
+  max-width: 300px;
+  min-height: 90px;
+  max-height: 300px; */
+  min-height: clamp(170px, 42dvw, 120px);
+  min-width: clamp(170px, 42dvw, 120px);
+  border-radius: var(--radius-pill);
+  background-color: transparent;
+  background-image: url("../../images/logoCintas.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: var(--shadow-lg);
+  @media (max-width: 700px) {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+.hero__eyebrow {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-white);
+}
+
+.hero__title {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+@keyframes heroSlide {
+  0% {
+    transform: translateX(0);
+  }
+  24% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-25%);
+  }
+  49% {
+    transform: translateX(-25%);
+  }
+  50% {
+    transform: translateX(-50%);
+  }
+  74% {
+    transform: translateX(-50%);
+  }
+  75% {
+    transform: translateX(-75%);
+  }
+  99% {
+    transform: translateX(-75%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
