@@ -1,0 +1,88 @@
+<section class="admin-card mt-4">
+  <div class="d-flex flex-column gap-3">
+    <div class="d-flex justify-content-between align-items-center gap-3">
+      <div class="d-flex flex-column">
+        <h2 class="m-0">Categorias</h2>
+        <p class="text-secondary m-0">Gerencie as categorias do catalogo.</p>
+      </div>
+
+      <div class="d-flex align-items-center gap-2">
+        <button id="categoriesNew" class="btn btn-dark btn-sm" type="button">
+          <i class="bi bi-plus-lg me-2"></i>Nova
+        </button>
+        <button id="categoriesRefresh" class="btn btn-outline-dark btn-sm" type="button">
+          <i class="bi bi-arrow-repeat me-2"></i>Atualizar
+        </button>
+      </div>
+    </div>
+
+    <div id="categoriesAlert"></div>
+
+    <div class="table-responsive">
+      <table class="table table-sm table-hover align-middle mb-0">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Slug</th>
+            <th>Ativo</th>
+            <th>Ordem</th>
+            <th>Atualizado</th>
+            <th class="text-end">Acoes</th>
+          </tr>
+        </thead>
+        <tbody id="categoriesTbody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div class="modal fade" id="categoryEditModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="categoryModalTitle">Categoria</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+
+      <form id="categoryEditForm" class="modal-body d-flex flex-column gap-3" novalidate>
+        <input type="hidden" id="categoryId" />
+
+        <div class="d-flex flex-column gap-1">
+          <label for="categoryName">Nome</label>
+          <input id="categoryName" type="text" class="form-control" required />
+        </div>
+
+        <div class="d-flex flex-column gap-1">
+          <label for="categorySlug">Slug (opcional)</label>
+          <input id="categorySlug" type="text" class="form-control" placeholder="ex: cintas-modeladoras" />
+          <small class="text-secondary">Se vazio, o sistema gera a partir do nome.</small>
+        </div>
+
+        <div class="d-flex flex-column gap-1">
+          <label for="categoryDescription">Descricao</label>
+          <textarea id="categoryDescription" class="form-control" rows="3" placeholder="Opcional"></textarea>
+        </div>
+
+        <div class="d-flex gap-2">
+          <div class="d-flex flex-column gap-1 flex-fill">
+            <label for="categoryActive">Ativo</label>
+            <select id="categoryActive" class="form-select">
+              <option value="true">Sim</option>
+              <option value="false">Nao</option>
+            </select>
+          </div>
+
+          <div class="d-flex flex-column gap-1" style="min-width: 140px;">
+            <label for="categorySortOrder">Ordem</label>
+            <input id="categorySortOrder" type="number" class="form-control" value="0" />
+          </div>
+        </div>
+      </form>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancelar</button>
+        <button id="categorySaveBtn" type="submit" form="categoryEditForm" class="btn btn-dark">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>

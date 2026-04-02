@@ -4,13 +4,29 @@
   border-bottom: 1px solid var(--border);
   background: var(--brand);
   color: var(--on-brand);
-  min-height: clamp(320px, 42vw, 420px);
+  min-height: clamp(220px, 42vw, 240px);
+  width: 100%;
+  max-width: 1200px;
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-md);
+  margin-top: 1rem;
+  justify-self: center !important;
   display: flex;
-  align-items: flex-end;
   background-image: url("../../images/banners/bgCinta2.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  
+  @media (max-width: 700px) {
+    /* min-height: inherit; */
+    max-height: 420px;
+    align-self: center !important;
+    box-shadow: var(--shadow-md);
+    border-radius: var(--radius-md);
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+  }
 }
 
 .hero__bg {
@@ -72,7 +88,7 @@
   display: flex;
   width: 100%;
   max-width: 40%;
-  min-height: clamp(320px, 42vw, 520px);
+  min-height: clamp(320px, 42vw, 450px);
   z-index: 1;
   padding-inline-start: var(--padding-xlg);
   padding-bottom: var(--padding-lg);
@@ -81,8 +97,10 @@
   background: linear-gradient(to right, rgba(0, 0, 0, 0.748), transparent 65%);
 
   @media (max-width: 700px) {
-    min-height: clamp(420px, 42vw, 520px);
+    min-height: inherit;
+    max-height: 420px;
     max-width: 100%;
+    align-self: center;
     padding-inline-start: inherit;
     background: linear-gradient(to right, rgba(0, 0, 0, 0.89), transparent 85%);
   }
@@ -103,6 +121,10 @@
   background-repeat: no-repeat;
   box-shadow: var(--shadow-lg);
   @media (max-width: 700px) {
+    min-height: inherit;
+    min-width: inherit;
+    width: 90px;
+    height: 90px;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

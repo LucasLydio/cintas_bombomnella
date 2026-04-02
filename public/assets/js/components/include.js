@@ -25,5 +25,20 @@ document.addEventListener("DOMContentLoaded", () => {
     for (const node of document.querySelectorAll("[data-year]")) {
       node.textContent = String(new Date().getFullYear());
     }
+
+    window.__includesLoaded = true;
+    document.dispatchEvent(new CustomEvent("includes:loaded"));
+
+    if (document.getElementById("auth-nav") || document.getElementById("auth-sidebar")) {
+      import("/assets/js/components/auth-nav.js")
+        .then((m) => m.mountAuthNav && m.mountAuthNav())
+        .catch(() => {});
+    }
+
+    if (document.querySelector("[data-categories]")) {
+      import("/assets/js/components/categories.js")
+        .then((m) => m.mountCategories && m.mountCategories())
+        .catch(() => {});
+    }
   });
 });

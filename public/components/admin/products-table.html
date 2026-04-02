@@ -1,0 +1,154 @@
+<section class="admin-card mt-4">
+  <div class="d-flex flex-column gap-3">
+    <div class="d-flex justify-content-between align-items-center gap-3">
+      <div class="d-flex flex-column">
+        <h2 class="m-0">Produtos</h2>
+        <p class="text-secondary m-0">Gerencie produtos e imagens.</p>
+      </div>
+
+      <div class="d-flex align-items-center gap-2">
+        <button id="productsNew" class="btn btn-dark btn-sm" type="button">
+          <i class="bi bi-plus-lg me-2"></i>Novo
+        </button>
+        <button id="productsRefresh" class="btn btn-outline-dark btn-sm" type="button">
+          <i class="bi bi-arrow-repeat me-2"></i>Atualizar
+        </button>
+      </div>
+    </div>
+
+    <div id="productsAlert"></div>
+
+    <div class="table-responsive">
+      <table class="table table-sm table-hover align-middle mb-0">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Preco</th>
+            <th>Estoque</th>
+            <th>Ativo</th>
+            <th>Categoria</th>
+            <th>Seller</th>
+            <th class="text-end">Acoes</th>
+          </tr>
+        </thead>
+        <tbody id="productsTbody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div class="modal fade" id="productEditModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalTitle">Produto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+
+      <form id="productEditForm" class="modal-body d-flex flex-column gap-3" novalidate>
+        <input type="hidden" id="productId" />
+
+        <div class="d-flex gap-2">
+          <div class="d-flex flex-column gap-1 flex-fill">
+            <label for="productName">Nome</label>
+            <input id="productName" type="text" class="form-control" required />
+          </div>
+          <div class="d-flex flex-column gap-1" style="min-width: 220px;">
+            <label for="productSlug">Slug (opcional)</label>
+            <input id="productSlug" type="text" class="form-control" placeholder="ex: cinta-modeladora-premium" />
+          </div>
+        </div>
+
+        <div class="d-flex flex-column gap-1">
+          <label for="productDescription">Descricao</label>
+          <textarea id="productDescription" class="form-control" rows="3" placeholder="Opcional"></textarea>
+        </div>
+
+        <div class="d-flex gap-2">
+          <div class="d-flex flex-column gap-1 flex-fill">
+            <label for="productCategoryId">Categoria</label>
+            <select id="productCategoryId" class="form-select"></select>
+          </div>
+          <div class="d-flex flex-column gap-1 flex-fill">
+            <label for="productSellerId">Seller</label>
+            <select id="productSellerId" class="form-select"></select>
+          </div>
+        </div>
+
+        <div class="d-flex gap-2">
+          <div class="d-flex flex-column gap-1 flex-fill">
+            <label for="productPriceCents">Preco (centavos)</label>
+            <input id="productPriceCents" type="number" class="form-control" value="0" min="0" />
+          </div>
+          <div class="d-flex flex-column gap-1" style="min-width: 140px;">
+            <label for="productCurrency">Moeda</label>
+            <input id="productCurrency" type="text" class="form-control" value="BRL" />
+          </div>
+          <div class="d-flex flex-column gap-1" style="min-width: 140px;">
+            <label for="productStock">Estoque</label>
+            <input id="productStock" type="number" class="form-control" value="0" min="0" />
+          </div>
+          <div class="d-flex flex-column gap-1" style="min-width: 140px;">
+            <label for="productActive">Ativo</label>
+            <select id="productActive" class="form-select">
+              <option value="true">Sim</option>
+              <option value="false">Nao</option>
+            </select>
+          </div>
+        </div>
+
+        <hr class="my-2" />
+
+        <div class="d-flex flex-column gap-2">
+          <div class="d-flex justify-content-between align-items-center">
+            <h6 class="m-0">Imagens</h6>
+            <button id="productImagesRefresh" type="button" class="btn btn-outline-dark btn-sm">
+              <i class="bi bi-arrow-repeat me-2"></i>Atualizar
+            </button>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table table-sm align-middle mb-0">
+              <thead>
+                <tr>
+                  <th>Path</th>
+                  <th>Cover</th>
+                  <th>Ordem</th>
+                  <th class="text-end">Acoes</th>
+                </tr>
+              </thead>
+              <tbody id="productImagesTbody"></tbody>
+            </table>
+          </div>
+
+          <div class="d-flex gap-2 align-items-end">
+            <div class="d-flex flex-column gap-1 flex-fill">
+              <label for="imageStoragePath">storage_path</label>
+              <input id="imageStoragePath" type="text" class="form-control" placeholder="bucket/path.jpg" />
+            </div>
+            <div class="d-flex flex-column gap-1 flex-fill">
+              <label for="imageAltText">alt_text</label>
+              <input id="imageAltText" type="text" class="form-control" placeholder="Opcional" />
+            </div>
+            <div class="d-flex flex-column gap-1" style="min-width: 120px;">
+              <label for="imageSortOrder">Ordem</label>
+              <input id="imageSortOrder" type="number" class="form-control" value="0" min="0" />
+            </div>
+            <div class="form-check mb-2" style="min-width: 110px;">
+              <input class="form-check-input" type="checkbox" value="" id="imageIsCover" />
+              <label class="form-check-label" for="imageIsCover">Cover</label>
+            </div>
+            <button id="imageAddBtn" type="button" class="btn btn-dark btn-sm">
+              <i class="bi bi-plus-lg me-2"></i>Add
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancelar</button>
+        <button id="productSaveBtn" type="submit" form="productEditForm" class="btn btn-dark">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>

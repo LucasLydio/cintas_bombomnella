@@ -1,0 +1,55 @@
+<section class="auth-card">
+  <div class="d-flex flex-column gap-3">
+    <div class="d-flex flex-column gap-1">
+      <h3 class="m-0">Criar conta</h3>
+      <h6 class="text-secondary m-0">Crie sua conta para montar seu carrinho.</h6>
+    </div>
+
+    <div id="registerAlert"></div>
+
+    <form id="registerForm" class="d-flex flex-column gap-3" novalidate>
+      <div class="d-flex flex-column gap-1">
+        <label for="registerName">Nome</label>
+        <input id="registerName" name="name" type="text" class="form-control" autocomplete="name" required />
+      </div>
+
+      <div class="d-flex flex-column gap-1">
+        <label for="registerEmail">Email</label>
+        <input id="registerEmail" name="email" type="email" class="form-control" autocomplete="email" required />
+      </div>
+
+      <div class="d-flex flex-column gap-1">
+        <label for="registerPhone">Telefone (opcional)</label>
+        <input id="registerPhone" name="phone" type="tel" class="form-control" autocomplete="tel" />
+      </div>
+
+      <div class="d-flex flex-column gap-1">
+        <label for="registerPassword">Senha</label>
+        <input
+          id="registerPassword"
+          name="password"
+          type="password"
+          class="form-control"
+          autocomplete="new-password"
+          required
+        />
+      </div>
+
+      <div class="d-flex flex-column gap-1">
+        <label for="registerPassword2">Confirmar senha</label>
+        <input id="registerPassword2" name="password2" type="password" class="form-control" autocomplete="new-password" required />
+      </div>
+
+      <button id="registerSubmit" type="submit" class="btn btn-dark w-100">
+        <span class="me-2"><i class="bi bi-person-plus"></i></span>
+        Criar conta
+      </button>
+    </form>
+    <hr class="text-black-50">
+
+    <div class="d-flex justify-content-between align-items-center">
+      <a class="" href="login.html">Já tenho conta</a>
+      <a class="" href="./">Voltar</a>
+    </div>
+  </div>
+</section>

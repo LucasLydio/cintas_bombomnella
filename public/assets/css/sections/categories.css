@@ -1,0 +1,138 @@
+.categories {
+  width: 100%;
+  padding: var(--padding-lg);
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  gap: 1.5rem;
+}
+
+.categories__header {
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.categories__eyebrow {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius-pill);
+  background: var(--brand-box);
+  color: var(--brand);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.categories__title {
+  margin: 0;
+  font-size: clamp(1.6rem, 2vw, 2.3rem);
+  line-height: 1.15;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.categories__text {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.categories__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.categories__empty {
+  grid-column: 1 / -1;
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 1.25rem;
+  text-align: center;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.category-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-brand);
+}
+
+.category-card__icon {
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  border-radius: var(--radius-md);
+  background: var(--brand-box);
+  color: var(--brand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.category-card__content {
+  flex: 1;
+}
+
+.category-card__content h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.category-card__content p {
+  margin: 0;
+  color: var(--text3);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.category-card__arrow {
+  color: var(--brand);
+  font-size: 1rem;
+  margin-top: 0.15rem;
+}
+
+@media (max-width: 991px) {
+  .categories__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .categories {
+    padding: var(--padding-lg) var(--padding-md);
+  }
+
+  .categories__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .category-card {
+    padding: 0.9rem;
+  }
+}

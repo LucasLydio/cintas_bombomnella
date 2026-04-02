@@ -1,0 +1,15 @@
+.main {
+  min-height: 85dvh;
+}
+.admin-card {
+  background: transparent;
+  padding: 1.25rem;
+}
+
+.admin .table {
+  --bs-table-bg: transparent;
+}
+
+.admin .table thead th {
+  font-weight: 600;
+}

@@ -1,0 +1,12 @@
+.main {
+  min-height: 85dvh;
+}
+
+.account-card {
+  max-width: 95%;
+  /* background: var(--bg-white); */
+  /* border: 1px solid var(--border); */
+  /* border-radius: var(--radius-lg); */
+  /* box-shadow: var(--shadow-sm); */
+  padding: var(--padding-md);
+}

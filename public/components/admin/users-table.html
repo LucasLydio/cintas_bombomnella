@@ -1,0 +1,89 @@
+<section class="admin-card">
+  <div class="d-flex flex-column gap-3">
+    <div class="d-flex justify-content-between align-items-center gap-3">
+      <div class="d-flex flex-column">
+        <h3 class="m-0">Usuarios</h3>
+        <p class="text-secondary m-0">Somente admin.</p>
+      </div>
+
+      <div class="d-flex align-items-center gap-2">
+        <button id="usersRefresh" class="btn btn-outline-dark btn-sm" type="button">
+          <i class="bi bi-arrow-repeat me-2"></i>Atualizar
+        </button>
+      </div>
+    </div>
+
+    <div id="adminAlert"></div>
+
+    <div class="table-responsive">
+      <table class="table table-sm table-hover align-middle mb-0">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Ativo</th>
+            <th>Criado</th>
+            <th class="text-end">Ações</th>
+          </tr>
+        </thead>
+        <tbody id="usersTbody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div class="modal fade" id="userEditModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar usuario</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <form id="userEditForm" class="modal-body d-flex flex-column gap-3" novalidate>
+        <input type="hidden" id="editUserId" />
+
+        <div class="d-flex flex-column gap-1">
+          <label for="editName">Nome</label>
+          <input id="editName" type="text" class="form-control" required />
+        </div>
+
+        <div class="d-flex flex-column gap-1">
+          <label for="editEmail">Email</label>
+          <input id="editEmail" type="email" class="form-control" required />
+        </div>
+
+        <div class="d-flex flex-column gap-1">
+          <label for="editPhone">Telefone</label>
+          <input id="editPhone" type="tel" class="form-control" />
+        </div>
+
+        <div class="d-flex gap-2">
+          <div class="d-flex flex-column gap-1 flex-fill">
+            <label for="editRole">Role</label>
+            <select id="editRole" class="form-select">
+              <option value="common">common</option>
+              <option value="seller">seller</option>
+              <option value="admin">admin</option>
+            </select>
+          </div>
+
+          <div class="d-flex flex-column gap-1" style="min-width: 140px;">
+            <label for="editActive">Ativo</label>
+            <select id="editActive" class="form-select">
+              <option value="true">Sim</option>
+              <option value="false">Nao</option>
+            </select>
+          </div>
+        </div>
+      </form>
+      <div class="modal-footer">
+        <button id="resetPasswordBtn" type="button" class="btn btn-outline-secondary">
+          <i class="bi bi-key me-2"></i>Reset senha
+        </button>
+        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancelar</button>
+        <button id="saveUserBtn" type="submit" form="userEditForm" class="btn btn-dark">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>

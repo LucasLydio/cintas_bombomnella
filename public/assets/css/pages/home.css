@@ -1,4 +1,16 @@
 @import url("../sections/hero.css");
+@import url("../sections/categories.css");
+@import url("../sections/cta.css");
+@import url("../sections/shop-cta.css");
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%;
+  padding-inline: var(--padding-md);
+  .home-content { max-width: 1200px; align-self: center; }
+}
 
 .main {
     min-height: 85dvh;

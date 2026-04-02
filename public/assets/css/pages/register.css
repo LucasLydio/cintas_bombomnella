@@ -1,0 +1,40 @@
+.auth-shell {
+  max-width: 520px;
+}
+
+.auth-card {
+  padding: .5rem;
+  color: var(--text-white);
+  h3, h6, p {
+    text-align: center;
+    color: var(--text);
+  }
+  a {
+    color: var(--text);
+  }
+  img {
+    width: 90px;
+    height: 90px;
+    border-radius: var(--radius-pill);
+    align-self: center;
+  }
+  input {
+    background-color: transparent;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+  }
+  label {
+    color: var(--text);
+
+  }
+  button {
+    width: 100%;
+    background: var(--bg-red);
+    color: var(--text-white);
+    border: none;
+    transition: ease all .5s;
+    &:hover {
+      background-color: rgb(98, 2, 2);
+    }
+  }
+}
